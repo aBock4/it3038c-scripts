@@ -16,6 +16,7 @@ def countLetters(word):
         #add 1 when iterated through
         dict += 1
     return dict
+
 #Function to count vowels/consonants in the word
 def countVowelsAndConsonants(word):
     vowels = 0;
@@ -25,8 +26,10 @@ def countVowelsAndConsonants(word):
             vowels += 1
         else: 
             consonants += 1
-    return "There are " + vowels + " vowels and " + consonants + " consonants."
-        
+    return ('There are ' + int(vowels) + " vowels and " + consonants + " consonants.")
+     
 number = countLetters(word)
 print(number)
-    
+
+test = countVowelsAndConsonants(word)
+print(test) 
