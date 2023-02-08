@@ -10,26 +10,42 @@ word = input()
 #Function to count letters in the word
 def countLetters(word):
     #set a counter
-    dict = 0
+    count = 0
     #iterate through the word with for loop
     for c in word:
         #add 1 when iterated through
-        dict += 1
-    return dict
+        count += 1
+    result = ("There are " + str(count) + " letters.")
+    return result
 
 #Function to count vowels/consonants in the word
 def countVowelsAndConsonants(word):
+    #set variable to hold vowel number
     vowels = 0;
+    #set variable to hold consonant number
     consonants = 0;
+    #for loop to iterate through the word
     for c in word:
-        if c == "a" or "e" or "i"or "o"or "u":
+        #set each letter to lowercase
+        letter = c.lower()
+        #if letter ie a,e,i,o, or u add 1 to vowel
+        if letter == "a" or letter == "e" or letter == "i" or letter == "o" or letter == "u":
             vowels += 1
+        #else add 1 to consonant
         else: 
             consonants += 1
-    return ('There are ' + int(vowels) + " vowels and " + consonants + " consonants.")
-     
+    #return the number of vowels and consonant in friendly message
+    result = ("There are " + str(vowels) + " vowels and " + str(consonants) + " consonants")
+    return result
+
+#use countLetters function to count letters     
 number = countLetters(word)
+
+#print the result
 print(number)
 
+#use countVowelsAndConsonants function to count letters
 test = countVowelsAndConsonants(word)
+
+#print the result
 print(test) 
