@@ -9,15 +9,15 @@ city = input("Please enter a city to search for breweries in: ")
 
 response = requests.get('https://api.openbrewerydb.org/breweries?by_city=' + city)
 
+#some error handling
+if response.status_code > 300:
+    print("There was an error in the request. Please try again.")
+else: json = response.json()
+
 #Function to get json data and store in arrays
 #This fuction is not used
 #I plan on using it to expand on this in project 3!
-def getJSONData:
-    #some error handling
-    if response.status_code > 300:
-        print("There was an error in the request. Please try again.")
-    else: json = response.json()
-
+def getJSONData(response):
     #Put all the names in an array
     breweries = []
     for b in json:
