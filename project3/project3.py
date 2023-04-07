@@ -1,4 +1,4 @@
-from Functions import *
+from functions import *
 
 #What this script does
 print("This script utilizes an API to get a list of breweries by name, state, city, or type.")
@@ -30,6 +30,21 @@ elif choice.lower() == "city":
     city = input ("Please enter a city to search for breweries in: ") 
     searchByCity(city)
 else:
-    showTypes()
-    bType = input("Please enter a type of a brewery to search for. Your choices are above: ") 
+    showTypes() 
+    
+    choices = ['micro','nano','regional','brewpub','large','planning','bar','contract','propietor','closed']
+    
+    #boolean to move forward with search
+    moveOn = False
+
+    #if its false keep asking 
+    while moveOn == False:
+        bType = input("Please enter a type of a brewery to search for. Your choices are above: ")
+        #if the user input is in the array of choices, then set moveOn to true and continue through script
+        if bType.lower() in choices:
+            moveOn = True
+        #else error message and retry
+        else:
+            showTypes()
+            print("There was an error in your input. Please only type 1 of the choices above: ")
     searchByType(bType)
