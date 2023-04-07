@@ -2,6 +2,7 @@ import requests
 from tabulate import tabulate
 
 #Documentation for API found at: https://www.openbrewerydb.org/documentation
+#max number of breweries that the api allows to be returned is 200
 
 #function to show choices in a table for user
 def showChoices():
@@ -52,8 +53,11 @@ def printTable(json):
         ]
         table.append(row)
 
-    #Print the table to the console
-    print(tabulate(table, tablefmt='fancy_grid'))
+    if len(table) > 1:
+        #Print the table to the console
+        print(tabulate(table, tablefmt='fancy_grid'))
+    else:
+        print("Uh oh! Your search resulted in 0 results. Please try again with a different search paramater.")
 
 #function to search the api by names
 def searchByName(name):
