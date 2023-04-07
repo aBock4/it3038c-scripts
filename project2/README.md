@@ -19,6 +19,11 @@ pip install tabulate
 Depending on the permissions, you may need to run as administrator.
 If you have another machine, you may follow this link for further documentation: https://pypi.org/project/tabulate/
 
+You may also need to download the module 'requests'. It can be downloaded with the following command:
+```powershell
+pip install requests
+```
+
 Run the script using Python (you should already have it installed in your windows Virtual Machine on UC's sandbox):
 
 ```python
