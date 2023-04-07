@@ -8,7 +8,7 @@ The API used was provided by: https://www.openbrewerydb.org/
 This script gets a list of breweries that the user searched for by name, state, city, or type.
 
 ### Prerequisites:
-This script will require 2 Python library downloads. I will give directions on how to run this script on a Windows machine.
+This script will require two Python library downloads. I will give directions on how to run this script on a Windows machine.
 
 The first python library to be downloaded is called "tabulate".    
 To download on a windows machine, run the following command in Powershell:
@@ -29,7 +29,7 @@ Download both 'project3.py' and 'functions.py' from the repo
 
 Make sure they are in the same directory, otherwise python will not be able to find the 'functions.py' file!  
 
-Open a powershell window and maximize the window for the best possible experience)  
+Open a powershell window and maximize the window (for the best possible experience :) )  
 
 Run the script using Python (you should already have it installed in your windows Virtual Machine on UC's sandbox):
 
@@ -38,7 +38,7 @@ python project3.py
 ```
 You will most likely have to change the file path, based on where the python file is located on your machine.  
   
-Due to the design of the api, the highest number of results that can be returned is 200
+Keep in mind that due to the design of the api, the highest number of results that can be returned is 200
 
 
 ###  Examples:
