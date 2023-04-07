@@ -1,7 +1,5 @@
 from Functions import *
 
-#Documentation for API found at: https://www.openbrewerydb.org/documentation
-
 #What this script does
 print("This script utilizes an API to get a list of breweries by name, state, city, or type.")
 
