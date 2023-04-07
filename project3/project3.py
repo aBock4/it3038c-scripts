@@ -1,100 +1,37 @@
-import requests
-from tabulate import tabulate
+from Functions import *
 
+#Documentation for API found at: https://www.openbrewerydb.org/documentation
 
-def showChoices():
-    #array of search choices
-    choices = [{'choice': "name", 'meaning': 'Search by name of brewery'},{'choice': "city", 'meaning': 'Search by city of brewery'},{'choice': "state", 'meaning': 'Search by state of brewery'},{'choice': "type", 'meaning': 'Search by type of brewery'}]
-    
-    #create a table with 3 headers
-    table = [
-        ['Choice:', 'What it means:']
-    ]
-    
-    #add data in
-    for model in choices:
-        row = [
-            model['choice'],
-            model['meaning']
-        ]
-        table.append(row)
+#What this script does
+print("This script utilizes an API to get a list of breweries by name, state, city, or type.")
 
-    #Print the table to the console
-    print(tabulate(table, tablefmt='fancy_grid'))
+choices = ['name','state','city','type']
 
-def responseStatus(response):
-    #some error handling
-    if response.status_code > 300:
-        print("There was an error in the request. Please try again.")
-    else: 
-        json = response.json()
-        return json
+showChoices()
 
-def printTable(json):
-    #create a table with 3 headers
-    table = [
-        ['Brewery:', 'Street:', 'City:', 'State:', 'Zip Code:', 'Website URL:']
-    ]
+#boolean to move forward with search
+moveOn = False
 
-    #add brewery, street, and zip code to each row
-    for model in json:
-        row = [
-            model['name'],
-            model['street'],
-            model['city'],
-            model['state'],
-            model['postal_code'],
-            model['website_url']
-        ]
-        table.append(row)
-
-    #Print the table to the console
-    print(tabulate(table, tablefmt='fancy_grid'))
-def searchByName(name):
-    response = requests.get('https://api.openbrewerydb.org/breweries?by_name=' + name.lower() + '&per_page=100')
-    
-    json = responseStatus(response)
-    
-    printTable(json)
-    
-def searchByCity(city):
-    response = requests.get('https://api.openbrewerydb.org/breweries?by_city=' + city.lower())
-    
-    json = responseStatus(response)
-    
-    printTable(json)
-
-def searchByState(state):
-    #cap this at 100 because it can be lengthy
-    response = requests.get('https://api.openbrewerydb.org/breweries?by_state=' + state.lower() + '&per_page=100')
-    
-    json = responseStatus(response)
-    
-    printTable(json)
-
-def searchByType(bType):
-    #cap this at 100 because it can be lengthy
-    response = requests.get('https://api.openbrewerydb.org/breweries?by_type=' + bType.lower() + '&per_page=100')
-    
-    json = responseStatus(response)
-    
-    printTable(json)
-
-def showTypes():
-    #create a table with 3 headers
-    table = [
-        ['Choice:', 'What it means:']
-    ]
-
-    types = [{'choice': 'micro', 'meaning': 'Most craft breweries. For example, Samual Adams is still considered a mircro brewery.'},{'choice': 'nano', 'meaning': 'An extremely small brewery which typically only distributes locally.'},{'choice': 'regional', 'meaning': 'A regional location of an expanded brewery. Ex. Sierra Nevada’s Asheville, NC location.'},{'choice': 'brewpub', 'meaning': 'A beer-focused restaurant or restaurant/bar with a brewery on-premise.'},{'choice': 'large', 'meaning': 'A very large brewery. Likely not for visitors. Ex. Miller-Coors'},{'choice': 'planning', 'meaning': 'A brewery in planning or not yet opened to the public.'},{'choice': 'bar', 'meaning': 'A bar. No brewery equipment on premise.'},{'choice': 'contract', 'meaning': 'A brewery that uses another brewery’s equipment.'},{'choice': 'propietor', 'meaning': 'Similar to contract brewing but refers more to a brewery incubator'},{'choice': 'closed', 'meaning': 'A location which has been closed.'}]
-    
-    #add data in
-    for model in types:
-        row = [
-            model['choice'],
-            model['meaning']
-        ]
-        table.append(row)
-
-    #Print the table to the console
-    print(tabulate(table, tablefmt='fancy_grid'))
+#if its false keep asking 
+while moveOn == False:
+    choice = input("What would you like to search by? Your choices are above: ")
+    #if the user input is in the array of choices, then set moveOn to true and continue through script
+    if choice.lower() in choices:
+        moveOn = True
+    #else error message and retry
+    else:
+        print("There was an error in your input. Please only type 1 of these options: 'Name', 'State', 'City', or 'Type'")
+        
+if choice.lower() == "name":
+    name = input ("Please enter a name of a brewery to search for: ") 
+    searchByName(name)
+elif choice.lower() == "state":
+    state = input ("Please enter a FULL STATE name to search for breweries in: ") 
+    searchByState(state)
+elif choice.lower() == "city":
+    city = input ("Please enter a city to search for breweries in: ") 
+    searchByCity(city)
+else:
+    showTypes()
+    bType = input("Please enter a type of a brewery to search for. Your choices are above: ") 
+    searchByType(bType)
