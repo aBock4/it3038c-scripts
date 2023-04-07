@@ -38,7 +38,9 @@ Run the script using Python (you should already have it installed in your window
 ```python
 python project3.py
 ```
-You will most likely have to change the file path, based on where the python file is located on your machine.
+You will most likely have to change the file path, based on where the python file is located on your machine.  
+  
+Due to the design of the api, the highest number of results that can be returned is 200
 
 
 ###  Examples:
