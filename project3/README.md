@@ -5,8 +5,6 @@ This script uses an API and returns data into an organized table.
 
 The API used was provided by: https://www.openbrewerydb.org/    
 
-The documentation that I used for the API: https://www.openbrewerydb.org/documentation 
-
 This script gets a list of breweries that the user searched for by name, state, city, or type.
 
 ### Prerequisites:
@@ -49,4 +47,6 @@ An example of an output can be as follows (I chose to search "Cincinnati":
 ![Screenshot 2023-03-20 215005](https://user-images.githubusercontent.com/82166772/226501194-316a1dd3-fb65-47a9-ae53-d043c4367fa7.png)
 
 ### References:
+The documentation that I used for the API: https://www.openbrewerydb.org/documentation   
+
 https://stackoverflow.com/users/1832058/furas from https://stackoverflow.com/questions/73263371/how-to-add-multiple-values-to-tabulate-array-from-a-range aided in the creation of the table.
