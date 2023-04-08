@@ -42,7 +42,7 @@ Keep in mind that due to the design of the api, the highest number of results th
 
 ### Why this is useful:
 This script is can be useful to those who enjoy trying/traveling to different breweries. It was designed for an ordinary user who wants to easily get a list of breweries by searching for breweries with the name, state, city, or type. It can be used by a varity of users including college students and adults.   
-The result of the search is very helfpul by including the name and address of the brewery, as well as a website, that points to the brewery returned.
+The result of the search is very helpful by including the name and address of the brewery, as well as a website, that points to the brewery returned.
 
 ### References:
 The documentation that I used for the API: https://www.openbrewerydb.org/documentation   
